@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    async function removeBackground() {
+        try {
+            const formData = new FormData();
+            formData.append('size', 'auto');
+            formData.append('image_url', 'https://i.imgur.com/HGKFbDk.jpeg');
+            const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+                    'X-Api-Key': '7LAEAUSMKoHwxr3iXr8UCiWg',
+                },
+            });
+            if (!response.ok) {
+                throw new Error(`Response error: ${response.statusText}`);
+            }
+            const imageBlob = await response.blob();
+            const url = URL.createObjectURL(imageBlob);
+            console.log(`Image URL: ${url}`);
+            const imageElement = document.createElement('img');
+            imageElement.src = url;
+            document.body.appendChild(imageElement);
+
+            // Revoke the object URL when you're done with the image
+            // URL.revokeObjectURL(url);
+
+        } catch (error) {
+            console.error('Request failed:', error);
+        }
+    }
+    removeBackground()
+</script>
+
+</html> -->

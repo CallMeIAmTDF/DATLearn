@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./sign-in.css">
+    <title>Đăng Ký</title>
+    <script>
+        const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,})$/i;
+        const passwordRegex = /^.{8,20}$/i;
+        accessToken = window.localStorage.getItem('accessToken')
+        if (accessToken) window.location.href = '/'
+    </script>
+</head>
+
+<body>
+    <div id="snackbar">Some text some message..</div>
+    <div class="container">
+        <div class="signin-signup">
+            <form class="sign-in-form">
+                <h2 class="title">Đăng Nhập</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email" id="loginUsername" autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu" id="loginPassword">
+                </div>
+                <div style="right:10px">
+                    <a href="./forget_password.html">Quên mật khẩu?</a>
+                </div>
+                <button type=submit class="btn" id="loginBtn">Đăng Nhập</button>
+                <!-- <input type=submit value="Đăng Nhập" class="btn" onclick="redirect()"> -->
+                <p class="social-text">Đăng nhập bằng một số mạng xã hội</p>
+                <div style="display:flex; justify-content:center; margin-bottom:.5rem;"
+                    class="tw-flex tw-justify-center tw-text-[#6c757d] tw-mb-2">
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem" title="Home" href="/">Home</a>
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem"
+                        class="tw-text-[#6c757d] tw-mr-4 tw-text-[.9rem]" title="Contact Us"
+                        href="https://www.facebook.com/Hello.IAmTDF/">Contact Us</a>
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem" class="tw-text-[#6c757d] tw-text-[.9rem]"
+                        title="Privacy Policy" href="/privacy-policy">Privacy &amp; Terms</a>
+                </div>
+                <p class="account-text">Bạn chưa có tài khoản?<a href="#" id="sign-up-btn2">Đăng Ký</a></p>
+            </form>
+
+            <form class="sign-up-form">
+                <h2 class="title">Đăng Ký</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Tài khoản" id="signUpUserName">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Email" id="signUpEmail">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu" id="signUpPassword">
+                </div>
+                <button type=submit class="btn" id="signUpBtn">Đăng Ký</button>
+                <!-- <input type="submit" value="Đăng Ký" class="btn"> -->
+                <p class="social-text">Đăng nhập bằng một số mạng xã hội</p>
+                <div style="display:flex; justify-content:center; margin-bottom:.5rem;"
+                    class="tw-flex tw-justify-center tw-text-[#6c757d] tw-mb-2">
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem" title="Home" href="/">Home</a>
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem"
+                        class="tw-text-[#6c757d] tw-mr-4 tw-text-[.9rem]" txitle="Contact Us"
+                        href="https://www.facebook.com/Hello.IAmTDF/">Contact Us</a>
+                    <a style="color:#2cc5cd; margin:0.6rem; font-size:.9rem" class="tw-text-[#6c757d] tw-text-[.9rem]"
+                        title="Privacy Policy" href="/privacy-policy">Privacy &amp; Terms</a>
+                </div>
+                <p class="account-text">Bạn đã có tài khoản? <a href="#" id="sign-in-btn2">Đăng Nhập</a></p>
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <img src="./assets/logo/DAT3.png" alt="DAT3" width="160" height="160">
+                    <p></p>
+                    <h4>Nâng cao trình độ ngôn ngữ của bạn</h4>
+                    <button class="btn" id="sign-in-btn">Đăng Nhập</button>
+                    <div style="display:flex; justify-content:center; margin-bottom:.5rem;"
+                        class="tw-flex tw-justify-center tw-text-[#6c757d] tw-mb-2">
+                        <a style="color:#ffffff; margin-right:1rem; font-size:.9rem" title="Home" href="/">Home</a>
+                        <a style="color:#ffffff; margin-right:1rem; font-size:.9rem"
+                            class="tw-text-[#6c757d] tw-mr-4 tw-text-[.9rem]" title="Contact Us"
+                            href="/en/contact-us">Contact Us</a>
+                        <a style="color:#ffffff; margin-right:1rem; font-size:.9rem"
+                            class="tw-text-[#6c757d] tw-text-[.9rem]" title="Privacy Policy"
+                            href="/en/privacy-policy">Privacy &amp; Terms</a>
+                    </div>
+                </div>
+                <img src="signin.svg" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <img src="./assets/logo/DAT3.png" alt="DAT3" width="160" height="160">
+                    <p></p>
+                    <h4>Nâng cao trình độ ngôn ngữ của bạn</h4>
+                    <button class="btn" id="sign-up-btn">Đăng Ký</button>
+                </div>
+                <img src="signup.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+    <script>
+        loginUsername = document.getElementById('loginUsername');
+        loginPassword = document.getElementById('loginPassword');
+        signUpUserName = document.getElementById('signUpUserName');
+        signUpEmail = document.getElementById('signUpEmail');
+        signUpPassword = document.getElementById('signUpPassword');
+        function notice(body, url) {
+            var notification = new Notification('DATLearn', {
+                icon: './assets/icons/spelling-disable.svg',
+                body: body,
+            });
+            if (url === undefined || url === null || url === '') url = '/'
+            notification.onclick = function () {
+                window.open(url);
+            };
+        }
+        async function postAPI(url, data) {
+            response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            return response.json()
+        }
+        function redirect(e) {
+            e.preventDefault();
+            document.getElementById('loginBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i>'
+            username = document.getElementById('loginUsername').value.trim();
+            password = document.getElementById('loginPassword').value.trim();
+            if (!emailRegex.test(username)) {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = `Bạn Phải Nhập Một Email`
+                x.style.backgroundColor = '#ed5f5f'
+                document.getElementById('loginBtn').innerHTML = 'Đăng Nhập'
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+            } else if (!passwordRegex.test(password)) {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = `Mật khẩu từ 8 đến 20 ký tự`
+                x.style.backgroundColor = '#ed5f5f'
+                document.getElementById('loginBtn').innerHTML = 'Đăng Nhập'
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+            }
+            else {
+                data = {
+                    "email": username,
+                    "password": password,
+                }
+                postAPI('http://localhost:8080/api/users/sign-in', data).then(data => {
+                    document.getElementById('loginBtn').innerHTML = 'Đăng Nhập'
+                    if (data.status === 'OK') {
+                        window.localStorage.setItem('accessToken', data.data.tokens.accessToken)
+                        window.localStorage.setItem('refreshToken', data.data.tokens.refreshToken)
+                        window.localStorage.setItem('username', data.data.userInfo.fullName)
+                        window.location.href = '/'
+                    }
+                    else {
+                        notice(data.message)
+                    }
+                })
+            }
+        }
+        function signUp(e) {
+            e.preventDefault();
+            document.getElementById('signUpBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i>'
+            username = document.getElementById('signUpUserName').value.trim();
+            password = document.getElementById('signUpPassword').value.trim();
+            email = document.getElementById('signUpEmail').value.trim();
+            if (!emailRegex.test(email)) {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = `Bạn Phải Nhập Một Email`
+                x.style.backgroundColor = '#ed5f5f'
+                document.getElementById('signUpBtn').innerHTML = 'Đăng Ký'
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+            } else if (!passwordRegex.test(password)) {
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = `Mật khẩu từ 8 đến 20 ký tự`
+                x.style.backgroundColor = '#ed5f5f'
+                document.getElementById('signUpBtn').innerHTML = 'Đăng Ký'
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+            } else {
+                data = {
+                    "name": username,
+                    "password": password,
+                    "email": email
+                }
+                postAPI('http://localhost:8080/users/register', data).then(data => {
+                    notice(data.message)
+                    document.getElementById('signUpBtn').innerHTML = 'Đăng Ký'
+                })
+            }
+        }
+        document.getElementsByTagName('form')[0].addEventListener('submit', redirect);
+        document.getElementsByTagName('form')[1].addEventListener('submit', signUp);
+
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+        const sign_in_btn2 = document.querySelector("#sign-in-btn2");
+        const sign_up_btn2 = document.querySelector("#sign-up-btn2");
+        sign_up_btn.addEventListener("click", () => {
+            container.classList.add("sign-up-mode");
+        });
+        sign_in_btn.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode");
+        });
+        sign_up_btn2.addEventListener("click", () => {
+            container.classList.add("sign-up-mode2");
+        });
+        sign_in_btn2.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode2");
+        });
+    </script>
+</body>
+
+</html>

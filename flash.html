@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            position: fixed;
+            bottom: 35px;
+            right: 50px;
+            z-index: 100;
+            border: 3px solid;
+            padding: 5px;
+            padding-left: 12px;
+            padding-right: 12px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <span id="m">10</span><span>:</span><span id="s">30</span>
+    </div>
+    <script>
+        m = 1;
+        s = 10;
+        function start() {
+            if (m === null) {
+                m = parseInt(document.getElementById('m').innerText);
+                s = parseInt(document.getElementById('s').innerText);
+            }
+
+            if (s == -1) {
+                m -= 1;
+                s = 59;
+            }
+            if (m == 0) {
+                if (document.getElementsByClassName('clock')[0].style.color == 'red') {
+                    document.getElementsByClassName('clock')[0].style.color = 'black';
+                    document.getElementsByClassName('clock')[0].style.backgroundColor = 'red';
+
+                } else {
+                    document.getElementsByClassName('clock')[0].style.color = 'red';
+                    document.getElementsByClassName('clock')[0].style.backgroundColor = 'black';
+                }
+            }
+            if (m == -1) {
+                clearTimeout(timeout);
+                return false;
+            }
+            m = m.toString().length == 1 ? "0" + m : m;
+            s = s.toString().length == 1 ? "0" + s : s;
+            document.getElementById('m').innerText = m.toString();
+            document.getElementById('s').innerText = s.toString();
+            timeout = setTimeout(function () {
+                s--;
+                start();
+            }, 1000)
+        }
+        start();
+    </script>
+</body>
+
+</html>

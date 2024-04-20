@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Từ Điển</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script defer src="./components/tag.js"></script>
+    <script defer src="./components/card.js"></script>
+    <script defer src="./components/Infor.js"></script>
+    <script defer src="./components/Menu.js"></script>
+    <script defer src="./components/DictonaryCard.js"></script>
+
+</head>
+
+<body>
+    <div style="background-color:beige; z-index:400"
+        class="tw-sticky tw-top-0 tw-z-[1020] !tw-w-full tw-bg-white tw-backdrop-blur tw-bg-opacity-80 tw-transition-all tw-duration-300 tw-ease-in-out !tw-top-0">
+        <div class="tw-max-w-[var(--container-max)] sm:tw-px-3 tw-mx-auto">
+            <nav class="tw-flex tw-flex-nowrap tw-items-center tw-px-4 tw-py-2 tw-justify-between"><a
+                    class="tw-font-text-bold tw-z-10 tw-p-0 tw-gap-3 tw-mr-8 xl:tw-mr-14 tw-flex tw-items-center hover:tw-no-underline"
+                    href="/">
+                    <div class="tw-flex tw-items-center"><img src="./assets/logo/DAT3.png" alt="langeek" width="35"
+                            height="35"></div>
+                    <p class="tw-mb-0 tw-text-lg tw-font-text-bold tw-text-black-1">DATLearn</p>
+                </a>
+                <div
+                    class="tw-z-[13] tw-flex-grow tw-relative tw-r-0 tw-hidden lg:tw-flex tw-text-right tw-w-full lg:tw-mt-0 tw-mt-3">
+                    <div
+                        class="tw-z-20 tw-gap-6 xl:tw-gap-9 tw-bg-transparent tw-flex tw-w-1/2 tw-float-right lg:tw-float-none lg:tw-w-full tw-flex-wrap sm:tw-flex-nowrap">
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/">Học từ vựng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/test.html">Kiểm tra</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 after:tw-scale-x-110"
+                            href="/dictionary.html">Từ điển</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/game.html">Trò chơi</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/rewards.html">Đổi thưởng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/mobile-app">App</a>
+                    </div>
+                </div>
+                <a class=" tw-self-start tw-py-2 tw-hidden lg:tw-flex tw-px-6 tw-mr-4 tw-my-auto tw-items-center tw-bg-blue-1 tw-ml-auto lg:tw-px-5 tw-font-text-bold tw-rounded-full hover:tw-no-underline tw-text-white hover:tw-text-white hover:tw-bg-purple tw-transition-all tw-duration-300"
+                    href="/sign-in.html" id="sign-in">
+                    <span
+                        class="tw-whitespace-nowrap tw-text-base tw-items-center tw-flex tw-gap-2 tw-font-text-medium"><img
+                            src="./assets/icons/profile.svg" alt="profile" class="tw-brightness-100 tw-invert"
+                            width="24" height="24">Sign in</span>
+                </a>
+                <information-tag style="z-index:400;" id="infor" username="" style="display: none;"></information-tag>
+            </nav>
+        </div>
+    </div>
+    <main class=" tw-flex-grow">
+        <div class="tw-px-4 tw-flex tw-flex-col tw-gap-14 sm:tw-gap-[60px] lg:tw-gap-[88px] container"
+            style="overflow-y:hidden">
+            <div>
+                <div class="container" style="position: fixed; background-color:white; z-index:30;">
+                    <div
+                        class="tw-flex tw-leading-6 tw-flex tw-justify-center tw-gap-8 tw-items-center tw-flex-col-reverse lg:tw-flex-row">
+                        <div class=" tw-flex tw-flex-col tw-items-center  tw-mt-3">
+                            <h1
+                                class=" tw-text-lg sm:tw-text-2xl lg:tw-text-[40px] tw-text-black-1 tw-text-center lg:tw-text-start tw-font-text-semibold">
+                                Dictionary</h1><img class=" tw-w-[270px] sm:tw-w-auto" src="./assets/svgs/line.svg"
+                                alt="line">
+                            <h1 class="tw-mb-0 tw-font-text-semibold tw-text-black-1 tw-text-4xl">Từ Điển Từ Vựng
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="tw-w-[70%] md:tw-w-[20rem]" style="margin:0 auto;">
+                        <div class="tw-mt-8 tw-flex tw-flex-col tw-shadow-[0px_0px_30px_-10px_#6248B1] tw-rounded-[1.5rem] tw-mx-auto tw-max-h-20 tw-max-w-2xl"
+                            id="searchbox">
+                            <div
+                                class="tw-relative tw-flex tw-items-center tw-p-0 tw-transition-all tw-duration-300 tw-border-[0.35rem] tw-border-[#6248B1] tw-ring-4 tw-ring-[#6248B1]/10 tw-rounded-3xl tw-max-h-20">
+                                <input type="text" id="txtSearch"
+                                    class="tw-flex tw-overflow-hidden focus:tw-outline-none placeholder:tw-text-gray-500 placeholder:tw-uppercase tw-py-4 md:tw-py-7 tw-w-[100%] tw-rounded-3xl tw-pl-12 md:tw-pl-20 tw-font-quicksand-bold tw-text-sm md:tw-text-xl tw-max-h-[69px]"
+                                    placeholder="Nhập từ cần tìm" value=""><svg aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="magnifying-glass"
+                                    class="svg-inline--fa fa-magnifying-glass fa-2x tw-absolute tw-text-lg md:tw-text-2xl tw-pl-3 md:tw-pl-5 tw-text-gray-500"
+                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z">
+                                    </path>
+                                </svg>
+                                <div
+                                    class="tw-flex tw-justify-center tw-items-center tw-h-[100%] tw-absolute tw-top-0 tw-right-0 tw-mr-2">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
+                                        class="svg-inline--fa fa-xmark tw-mr-3 tw-cursor-pointer tw-z-50 tw-hidden tw-text-gray-500 tw-text-lg md:tw-text-xl"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                        <path fill="currentColor"
+                                            d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box tw-justify-center tw-items-center"
+                    style="display:flex; flex-wrap: wrap; width:90%; margin:0 auto; margin-top:210px;">
+                </div>
+            </div>
+    </main>
+
+    <script>
+        var value = '';
+        function getWord(word) {
+            return word.word.toLowerCase().startsWith(value)
+        }
+        document.getElementById('txtSearch').addEventListener('input', () => {
+            value = document.getElementById('txtSearch').value;
+            console.log(value);
+            r = ''
+            if (value === '') {
+                r = ''
+                document.getElementsByClassName('result-box')[0].innerHTML = r;
+            } else {
+                fetch('/assets/jsons/data.json').then(data => data.json()).then(data => {
+                    d = data.filter((word) => {
+                        return word.word.toLowerCase().startsWith(value)
+                    });
+                    i = 0;
+                    for (let i = 0; i < d.length && i < 40; i++) {
+                        item = d[i];
+                        mean1 = item.mean.split('// ')[0]
+                        mean2 = item.mean.split('// ')[1]
+                        type = item.type
+                        if (type.startsWith('(')) {
+                            if (mean2 === '') mean2 = type;
+                            type = 'không có'
+                        }
+                        else {
+                            type = item.type.split(', ')[0]
+                        }
+                        if (type === '') {
+                            type = '  '
+                        }
+                        r += `<dictionary-card style="margin:0 auto;" class="tw-mr-4 tw-mb-4" pronun="${item.pronun}" word="${item.word}" type="${type}" mean1="${mean1}" mean2="${mean2}"></dictionary-card>`
+                    }
+                    document.getElementsByClassName('result-box')[0].innerHTML = r;
+                })
+            }
+        })
+    </script>
+    <script src="./index.js"></script>
+    <script defer>
+        function playSound(word) {
+            utter = new SpeechSynthesisUtterance(word);
+            utter.voice = speechSynthesis.getVoices()[0];
+            utter.lang = 'en-US'
+            speechSynthesis.speak(utter);
+        }
+    </script>
+</body>
+
+</html>

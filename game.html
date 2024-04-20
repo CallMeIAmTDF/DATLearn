@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trò Chơi</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script defer src="./components/Game.js"></script>
+    <script defer src="./components/Infor.js"></script>
+    <script defer src="./components/Menu.js"></script>
+
+</head>
+
+<body>
+    <div style="background-color:beige"
+        class="tw-sticky tw-top-0 tw-z-[1020] !tw-w-full tw-bg-white tw-backdrop-blur tw-bg-opacity-80 tw-transition-all tw-duration-300 tw-ease-in-out !tw-top-0">
+        <div class="tw-max-w-[var(--container-max)] sm:tw-px-3 tw-mx-auto">
+            <nav class="tw-flex tw-flex-nowrap tw-items-center tw-px-4 tw-py-2 tw-justify-between"><a
+                    class="tw-font-text-bold tw-z-10 tw-p-0 tw-gap-3 tw-mr-8 xl:tw-mr-14 tw-flex tw-items-center hover:tw-no-underline"
+                    href="/">
+                    <div class="tw-flex tw-items-center"><img src="./assets/logo/DAT3.png" alt="langeek" width="35"
+                            height="35"></div>
+                    <p class="tw-mb-0 tw-text-lg tw-font-text-bold tw-text-black-1">DATLearn</p>
+                </a>
+                <div
+                    class="tw-z-[13] tw-flex-grow tw-relative tw-r-0 tw-hidden lg:tw-flex tw-text-right tw-w-full lg:tw-mt-0 tw-mt-3">
+                    <div
+                        class="tw-z-20 tw-gap-6 xl:tw-gap-9 tw-bg-transparent tw-flex tw-w-1/2 tw-float-right lg:tw-float-none lg:tw-w-full tw-flex-wrap sm:tw-flex-nowrap">
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/">Học từ vựng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/test.html">Kiểm tra</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/dictionary.html">Từ điển</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 after:tw-scale-x-110"
+                            href="/game.html">Trò chơi</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/rewards.html">Đổi thưởng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/mobile-app">App</a>
+                    </div>
+                </div>
+                <a class=" tw-self-start tw-py-2 tw-hidden lg:tw-flex tw-px-6 tw-mr-4 tw-my-auto tw-items-center tw-bg-blue-1 tw-ml-auto lg:tw-px-5 tw-font-text-bold tw-rounded-full hover:tw-no-underline tw-text-white hover:tw-text-white hover:tw-bg-purple tw-transition-all tw-duration-300"
+                    href="/sign-in.html" id="sign-in">
+                    <span
+                        class="tw-whitespace-nowrap tw-text-base tw-items-center tw-flex tw-gap-2 tw-font-text-medium"><img
+                            src="./assets/icons/profile.svg" alt="profile" class="tw-brightness-100 tw-invert"
+                            width="24" height="24">Sign in</span>
+                </a>
+                <information-tag id="infor" username="" style="display: none;"></information-tag>
+            </nav>
+        </div>
+    </div>
+    <main class=" tw-flex-grow">
+        <div
+            class="sm:tw-mt-3 tw-mt-6 tw-px-4 tw-flex tw-flex-col tw-gap-14 sm:tw-gap-[60px] lg:tw-gap-[88px] container">
+            <div>
+                <div class="container">
+                    <div
+                        class="tw-flex tw-leading-6 tw-flex tw-justify-center tw-gap-8 tw-items-center tw-mt-8 tw-flex-col-reverse lg:tw-flex-row">
+                        <div class=" tw-flex tw-flex-col tw-items-center ">
+                            <h1
+                                class=" tw-text-lg sm:tw-text-2xl lg:tw-text-[40px] tw-text-black-1 tw-text-center lg:tw-text-start tw-font-text-semibold">
+                                GAME</h1><img class=" tw-w-[270px] sm:tw-w-auto sm:tw-mb-1 lg:tw-mb-2 tw-py-4"
+                                src="./assets/svgs/line.svg" alt="line">
+                            <h1 class="tw-mb-0 tw-font-text-semibold tw-text-black-1 tw-text-4xl">Danh Sách Trò Chơi
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="old-container tw-justify-center lg:tw-mb-6 tw-mb-0 tw-mt-4">
+        <div class="tw-flex tw-flex-wrap tw-justify-between tw-overflow-hidden">
+            <div
+                class="tw-basis-full tw-w-full tw-mx-0 sm:tw-mx-auto tw-px-0 sm:tw-px-[auto] tw-flex tw-justify-around">
+                <div
+                    class="xl:tw-float-right sm:tw-pb-4 tw-pb-0 xl:tw-px-2 sm:tw-px-1 tw-px-0 lg:tw-order-2 tw-order-1">
+                    <div class=" tw-w-full tw-mx-0 tw-px-0 lg:tw-py-4 sm:tw-py-1 tw-py-0 tw-flex tw-flex-wrap tw-flex-row tw-items-start
+		sm:tw-mx-auto tw-justify-center">
+                        <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 lg:tw-gap-6">
+                            <game-card href="wordle" level="Khó" game="Wordle Game">Luật chơi rất đơn giản: Bạn cần đoán
+                                từ ẩn gồm 5
+                                chữ cái sau 6 lần thử. Để bắt đầu, chỉ cần gõ bất kỳ từ nào trên dòng đầu tiên. Bạn có
+                                thể đoán từ ẩn sau 6 lần
+                                thử không?</game-card>
+                            <game-card href="wordchain" level="Dễ" game="Word Chain">Luật chơi rất đơn giản: Bạn và máy
+                                sẽ liên tục
+                                nhập từ sao cho ký tự cuối của từ này sẽ là ký tự bắt đầu của từ tiếp theo.</game-card>
+                            <game-card href="wordscramble" level="Trung Bình/Khó" game="Word Scramble">Luật chơi rất đơn
+                                giản: Máy sẽ ngẫu
+                                nhiên một từ tiếng anh với thứ tự ký tự được xáo trộn. Nhiệm vụ của người chơi là đoán
+                                đúng từ đã bị xáo trộn sau 5 lần thử. Bạn làm được không? </game-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+		<div class="tw-flex tw-leading-6 tw-w-full">
+			<div id="list-card" class="tw-my-12 tw-w-full xl:tw-mx-0 tw-grid rw-grid-cols-2 tw-gap-6">
+			</div>
+		</div>
+	</div> -->
+    <!-- <script>
+		try {
+			fetch("http://localhost:8080/getAllClevel").then(
+				res => {
+					res.json().then(
+						data => {
+							var r = "";
+							var listCard = document.getElementById('list-card')
+							for (let i = 0; i < data.length; i++) {
+								//<card-item level=1 cid=1></card-item>
+								// var el = document.createElement('card-item')
+								// el.setAttribute('level', data[i].level)
+								// el.setAttribute('cid', data[i].cid)
+								// listCard.appendChild(el)
+								r = r + `<card-item level=${data[i].level} cid=${data[i].cid}></card-item>`
+							}
+							listCard.innerHTML = r;
+						}
+					)
+				}
+			)
+			// fetch('http://localhost:8080/getAllClevel').then(response => response.json()).then(data => {
+			// 	listCard = document.getElementById('list-card')
+			// 	for(let i = 0; i < data.length; i++){
+			// 		//<card-item level=1 cid=1></card-item>
+			// 		var el = document.createElement('card-item')
+			// 		el.setAttribute('level', data[i].level)
+			// 		el.setAttribute('cid', data[i].cid)
+			// 		listCard.appendChild(el)
+			// 	}
+			// })
+		} catch (ex) {
+			console.log(ex)
+		}
+	</script> -->
+    <script src="/index.js"></script>
+</body>
+
+</html>

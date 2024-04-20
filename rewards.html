@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script>
+
+        const phoneRegex = /^0[0-9]{9}$/i
+        function closeForm() {
+            document.getElementsByClassName('formContainer')[0].classList.add('hide');
+            document.getElementsByClassName('formContainer')[0].innerHTML = ''
+        }
+    </script>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.6/css/boxicons.min.css' rel='stylesheet'>
+    <title>Đổi thưởng</title>
+    <style>
+        #quantityBox {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #quantityBox button {
+            flex: 1;
+        }
+
+        #numQuantity {
+            flex: 5;
+            width: calc(100% - 100px);
+            border: 0px;
+            border-bottom: 2px solid #f5f5f5;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .shop {
+            height: auto;
+            background: #ffffff;
+            overflow: auto;
+            color: rgb(var(--color));
+            width: 100%;
+            color: #1c1a26;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+
+        * {
+            list-style: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .con-cards {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: auto;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .con-cards:after {
+            content: '';
+            position: relative;
+            min-width: 50px;
+            height: 10px;
+            background: transparent;
+        }
+
+        .con-cards::-webkit-scrollbar {
+            height: 0px;
+        }
+
+        .card {
+            box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, .05);
+            padding: 15px;
+            border-radius: 35px;
+            width: 260px;
+            min-width: 260px;
+            position: relative;
+            margin: 0px 15px;
+            background: #fff;
+            scroll-snap-align: center;
+            transition: all .25s ease;
+            border: 2px solid #fff;
+        }
+
+        .add-active {
+            /* transform: translate(0, -10px); */
+            box-shadow: 0px 10px 30px 0px rgba(254, 160, 26, .2);
+            border: 2px solid #fea01a;
+        }
+
+        .add-active .add {
+            margin-top: 10px;
+        }
+
+        .add-active .con-image img:not(.bg) {
+            transform: scale(1.15);
+        }
+
+        .add-active .con-input-btns {
+            display: flex;
+        }
+
+        .con-star {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            margin: 30px;
+            font-size: 1.2rem;
+        }
+
+        .con-image {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            border-radius: 30px;
+            background: #f5f5f5;
+        }
+
+        .con-image img {
+            width: 250px;
+            z-index: 20;
+            transition: all .25s ease;
+        }
+
+        .con-image .bg {
+            position: absolute;
+            transform: translate(10px, 30px);
+            z-index: 10;
+            filter: blur(20px);
+            opacity: .4;
+        }
+
+        .con-text {
+            width: 100%;
+            padding: 10px 0px;
+            opacity: .5;
+            font-size: .8rem;
+        }
+
+        .con-text h3 {
+            padding: 5px 0px;
+        }
+
+        .con-price {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1.1rem;
+            padding-top: 0px;
+        }
+
+        .add {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(-45deg, #5bb7c3, #057e91);
+            border: 0px;
+            border-radius: 20px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .con-input-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        .con-input-btns input {
+            padding: 10px;
+            flex: 1;
+            width: calc(100% - 100px);
+            height: 49px;
+            border: 0px;
+            border-bottom: 2px solid #f5f5f5;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .con-input-btns button {
+            padding: 10px;
+            min-width: 49px;
+            height: 49px;
+            border: 0px;
+            border-radius: 20px;
+            background: linear-gradient(-45deg, #5bb7c3, #057e91);
+            color: #fff;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .25s ease;
+        }
+
+        .con-input-btns button:active {
+            transform: scale(.8);
+        }
+
+        .img {
+            mix-blend-mode: multiply;
+            height: 220px;
+            width: auto;
+        }
+
+        .bg {
+            mix-blend-mode: multiply;
+            height: 220px;
+            width: auto;
+
+        }
+
+        .tokens {
+            min-width: 90px;
+            width: fit-content;
+            border: 3px solid #fcf37a;
+            border-radius: 20px;
+            font-size: 17px;
+            padding: 4px;
+            background-color: #fcf37a;
+            margin-right: 40px;
+            margin-top: 20px;
+            float: right;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            position: absolute;
+            width: fit-content;
+            border: 1px;
+            box-shadow: 0px 0px 11px 11px rgb(0 0 0 / 10%);
+            border-radius: 10px;
+            margin: 0 auto;
+            z-index: 100;
+            background-color: #ffffff;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: fixed;
+        }
+
+        form {
+            padding: 60px;
+        }
+
+        table {
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        button.submit,
+        button#closeForm {
+            width: 80px;
+            height: 33px;
+            border: none;
+            border-radius: 4px;
+            color: aliceblue;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        button.submit {
+            background-color: cornflowerblue;
+        }
+
+        .plusLess {
+            border: none;
+            background-color: #ffffff;
+        }
+
+        button.submit:hover {
+            background-color: rgb(2, 113, 113);
+            color: #fff;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        form input,
+        form textarea {
+            border: none;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        #closeForm {
+            background-color: rgb(237, 109, 100);
+        }
+
+        #closeForm:hover {
+            background-color: rgb(113, 8, 2);
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="snackbar">Some text some message..</div>
+    <div style="background-color:beige; z-index:30000;"
+        class="tw-sticky tw-top-0 tw-z-[1020] !tw-w-full tw-bg-white tw-backdrop-blur tw-bg-opacity-80 tw-transition-all tw-duration-300 tw-ease-in-out !tw-top-0">
+        <div class="tw-max-w-[var(--container-max)] sm:tw-px-3 tw-mx-auto">
+            <nav class="tw-flex tw-flex-nowrap tw-items-center tw-px-4 tw-py-2 tw-justify-between"><a
+                    class="tw-font-text-bold tw-z-10 tw-p-0 tw-gap-3 tw-mr-8 xl:tw-mr-14 tw-flex tw-items-center hover:tw-no-underline"
+                    href="/">
+                    <div class="tw-flex tw-items-center"><img src="./assets/logo/DAT3.png" alt="langeek" width="35"
+                            height="35"></div>
+                    <p class="tw-mb-0 tw-text-lg tw-font-text-bold tw-text-black-1">DATLearn</p>
+                </a>
+                <div
+                    class="tw-z-[13] tw-flex-grow tw-relative tw-r-0 tw-hidden lg:tw-flex tw-text-right tw-w-full lg:tw-mt-0 tw-mt-3">
+                    <div
+                        class="tw-z-20 tw-gap-6 xl:tw-gap-9 tw-bg-transparent tw-flex tw-w-1/2 tw-float-right lg:tw-float-none lg:tw-w-full tw-flex-wrap sm:tw-flex-nowrap">
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110"
+                            href="/">Học từ vựng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/test.html">Kiểm tra</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/dictionary.html">Từ điển</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/game.html">Trò chơi</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110  after:tw-scale-x-110"
+                            href="/rewards.html">Đổi thưởng</a>
+                        <a class="tw-text-base hover:tw-no-underline tw-text-primary-dark hover:tw-text-primary-dark tw-font-text-medium tw-relative after:tw-transition-all after:tw-duration-300 after:tw-ease-in-out after:tw-content-[''] after:tw-absolute after:tw-left-0 after:tw-right-0 after:tw-mx-auto after:tw-bg-primary-dark after:tw-bottom-0 after:tw-w-[70%] after:tw-h-[2px] after:tw-scale-x-0 after:hover:tw-scale-x-110 "
+                            href="/mobile-app">App</a>
+                    </div>
+                </div>
+                <a class=" tw-self-start tw-py-2 tw-hidden lg:tw-flex tw-px-6 tw-mr-4 tw-my-auto tw-items-center tw-bg-blue-1 tw-ml-auto lg:tw-px-5 tw-font-text-bold tw-rounded-full hover:tw-no-underline tw-text-white hover:tw-text-white hover:tw-bg-purple tw-transition-all tw-duration-300"
+                    href="/sign-in.html" id="sign-in">
+                    <span
+                        class="tw-whitespace-nowrap tw-text-base tw-items-center tw-flex tw-gap-2 tw-font-text-medium"><img
+                            src="./assets/icons/profile.svg" alt="profile" class="tw-brightness-100 tw-invert"
+                            width="24" height="24">Sign in</span>
+                </a>
+                <information-tag id="infor" username="" style="display: none;"></information-tag>
+            </nav>
+        </div>
+    </div>
+
+    <div class="formContainer hide">
+        <reward-form class="form" pname="Vở thiên long" pquantity="3" price="300"></reward-form>
+    </div>
+    <div style="background-color: #ffffff; position:fixed; width:98%; overflow:hidden; z-index:9999">
+        <!-- <span class="tw-flex tw-items-center tw-mr-2"><img src="/assets/icons/token.svg" class="UserAvatar_icon__xdTd2"
+                width="19" alt="">
+            <div class="tokens">150000</div> -->
+        <div class="tokens">
+            <div class="tw-flex tw-items-center"><span class="tw-flex tw-items-center tw-mr-1"><img
+                        src="/assets/icons/token.svg" class="UserAvatar_icon__xdTd2" width="19" alt=""></span><span
+                    class="DATs">19920 DATs</span>
+            </div>
+        </div>
+    </div>
+    <div class="shop">
+        <div class="con-cards-1 con-cards"></div>
+        <div class="con-cards-2 con-cards"></div>
+        <div class="con-cards-3 con-cards"></div>
+    </div>
+    <script>
+        const images = 56
+        async function getAPI(url) {
+            response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${window.localStorage.getItem('accessToken')}`
+                },
+            });
+            return response.json()
+        }
+        async function postAPI(url, data) {
+            response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${window.localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(data),
+            });
+            return response.json()
+        }
+        getAPI('http://localhost:8080/api/coin/getCoin').then(data => {
+            if (data.status === 'OK') {
+                document.getElementsByClassName('DATs')[0].innerText = `${data.data} DATs`
+            }
+            else {
+                document.getElementsByClassName('DATs')[0].innerText = `${0} DATs`
+                window.localStorage.clear();
+            }
+        })
+        getAPI('http://localhost:8080/api/product/getAll').then(data => {
+            r = ''
+            if (data.status === 'OK') {
+                list = data.data
+                list.forEach((item) => {
+                    if (item.image && item.image.includes('.') && item.isDeleted === false) {
+                        r += `<product-card class="card" price="${item.price}" pname="${item.name}" img="${item.image}" pid="${item.pid}"></product-card>`
+                    }
+                })
+                document.getElementsByClassName('con-cards-1 con-cards')[0].innerHTML = r;
+            }
+        })
+        function plusLessValue(value) {
+            if (value === 'less') {
+                v = document.getElementById('numQuantity').value;
+                document.getElementById('numQuantity').value = v - 1;
+            } else {
+                v = document.getElementById('numQuantity').value;
+                document.getElementById('numQuantity').value = v - -1;
+            }
+        }
+        function handleAdd(event) {
+            var x = document.getElementById("snackbar");
+            const card = event.target.closest('.card')
+            if (card.getElementsByClassName('add')[0].innerText == 'Xác Nhận Đổi') {
+                num = card.getElementsByTagName('input')[0].value;
+                price = card.getElementsByClassName('con-price')[0].innerText.split(' ')[0];
+                name = card.getElementsByClassName('con-text')[0].getElementsByTagName('h3')[0].innerText;
+                id = card.getElementsByClassName('con-image')[0].getAttribute('pid');
+                document.getElementsByClassName('formContainer')[0].innerHTML = `<reward-form class="form" pid = "${id}" pname="${name}" pquantity="${num}" price="${num * price}"></reward-form>`
+                document.getElementsByClassName('formContainer')[0].classList.remove('hide');
+                document.getElementsByClassName('con-cards-1 con-cards')[0].style.opacity = '0.3';
+                document.getElementsByClassName('plusLess')[0].addEventListener('click', () => {
+                    v = document.getElementById('numQuantity').value;
+                    if (v == 1) {
+                        document.getElementById('numQuantity').value = 1
+                    } else {
+                        document.getElementById('numQuantity').value = v - 1;
+                    }
+                });
+                document.getElementsByClassName('plusLess')[1].addEventListener('click', () => {
+                    v = document.getElementById('numQuantity').value;
+                    document.getElementById('numQuantity').value = v - -1;
+                });
+
+                document.getElementById('closeForm').addEventListener('click', () => {
+                    document.getElementsByClassName('formContainer')[0].classList.add('hide');
+                    document.getElementsByClassName('formContainer')[0].innerHTML = ''
+                    document.getElementsByClassName('con-cards-1 con-cards')[0].style.opacity = '1';
+                });
+                const input = document.getElementsByClassName('numQuantity')[0];
+                input.addEventListener("input", function () {
+                    const valueLength = input.value.length;
+                    const scrollWidth = input.scrollWidth;
+                    const clientWidth = input.clientWidth;
+                    let newWidth;
+                    if (scrollWidth > clientWidth) {
+                        newWidth = scrollWidth + "px";
+                    } else {
+                        newWidth = valueLength + "ch";
+                    }
+                    input.style.width = newWidth;
+                });
+                document.getElementsByTagName('form')[0].addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    form = document.getElementsByTagName('form')[0];
+                    //console.log(form);
+                    rewardForm = document.getElementsByTagName('reward-form')[0];
+                    quantity = form.getElementsByClassName('numQuantity')[0].value;
+                    price = rewardForm.getAttribute('price');
+                    pid = rewardForm.getAttribute('pid');
+                    phone = form.getElementsByClassName('txtPhone')[0].value;
+                    address = form.getElementsByClassName('txtAddress')[0].value;
+                    if (!phoneRegex.test(phone)) {
+                        x.className = "show";
+                        x.innerText = `Số điện thoại không hợp lệ!!!`
+                        x.style.backgroundColor = '#ed5f5f'
+                        setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                    } else if (address === '') {
+                        x.className = "show";
+                        x.innerText = `Địa chỉ không hợp lệ!!!`
+                        x.style.backgroundColor = '#ed5f5f'
+                        setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                    } else {
+                        order = {
+                            "phone": phone,
+                            "address": address,
+                            "pid": pid,
+                            "quantity": quantity,
+                        }
+                        console.log(order)
+                        postAPI('http://localhost:8080/api/order/add', order).then(data => {
+                            if (data.status === 'OK') {
+                                x.className = "show";
+                                x.innerText = `${data.message}`
+                                x.style.backgroundColor = '#77f246'
+                                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                                getAPI('http://localhost:8080/api/coin/getCoin').then(data => {
+                                    if (data.status === 'OK') {
+                                        document.getElementsByClassName('DATs')[0].innerText = `${data.data} DATs`
+                                    }
+                                    else if (data.status === 'BAD_REQUEST') {
+                                        alert('Bạn cần đăng nhập');
+                                        window.localStorage.clear();
+                                        window.location.href = '/'
+                                    }
+                                })
+                            } else if (data.status === 'BAD_REQUEST') {
+                                x.className = "show";
+                                x.innerText = `${data.message}`
+                                x.style.backgroundColor = '#ed5f5f'
+                                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                            } else {
+                                x.className = "show";
+                                x.innerText = `Bạn cần đăng nhập để tiếp tục`
+                                x.style.backgroundColor = '#ed5f5f'
+                                setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                            }
+
+                            document.getElementsByClassName('formContainer')[0].classList.add('hide');
+                            document.getElementsByClassName('formContainer')[0].innerHTML = ''
+                            document.getElementsByClassName('con-cards-1 con-cards')[0].style.opacity = '1';
+                        })
+                    }
+                });
+                card.getElementsByTagName('input')[0].value = 1;
+                card.classList.remove('add-active')
+                card.getElementsByClassName('add')[0].innerText = 'Đổi Sản Phẩm Này'
+                let cards = document.getElementsByClassName('card');
+                for (let i = 0; i < cards.length; i++) {
+                    if (cards[i] !== card) {
+                        let btn = cards[i].getElementsByClassName('add')[0];
+                        btn.style.display = 'block';
+                    }
+                }
+            }
+            else {
+                card.getElementsByClassName('add')[0].innerText = 'Xác Nhận Đổi'
+                card.classList.add('add-active')
+                let cards = document.getElementsByClassName('card');
+                for (let i = 0; i < cards.length; i++) {
+                    if (cards[i] !== card) {
+                        let btn = cards[i].getElementsByClassName('add')[0];
+                        btn.style.display = 'none';
+                    }
+                }
+            }
+        }
+        function plusLess(event, type) {
+            const card = event.target.closest('.card')
+            const input = card.querySelector('input')
+            let oldVal = Number(input.value)
+            if (type == 'less') {
+                if (oldVal == 1 || oldVal < 0) {
+                    card.classList.remove('add-active')
+                    card.getElementsByClassName('add')[0].innerText = 'Đổi Sản Phẩm Này'
+                    let cards = document.getElementsByClassName('card');
+                    for (let i = 0; i < cards.length; i++) {
+                        if (cards[i] !== card) {
+                            let btn = cards[i].getElementsByClassName('add')[0];
+                            btn.style.display = 'block';
+                        }
+                    }
+                    return
+                }
+                input.value = oldVal -= 1
+            } else {
+                input.value = oldVal += 1
+            }
+        }
+
+    </script>
+    <script defer src="./components/Infor.js"></script>
+    <script defer src="./components/TestQuestion.js"></script>
+    <script defer src="./components/ResultQuestion.js"></script>
+    <script defer src="./components/TestResultBox.js"></script>
+    <script defer src="./components/Product.js"></script>
+    <script defer src="./components/RewardsForm.js"></script>
+    <script src="/components/Menu.js" defer></script>
+    <script src="/index.js"></script>
+</body>
+
+</html>
