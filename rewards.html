@@ -438,7 +438,7 @@
                 price = card.getElementsByClassName('con-price')[0].innerText.split(' ')[0];
                 name = card.getElementsByClassName('con-text')[0].getElementsByTagName('h3')[0].innerText;
                 id = card.getElementsByClassName('con-image')[0].getAttribute('pid');
-                document.getElementsByClassName('formContainer')[0].innerHTML = `<reward-form class="form" pid = "${id}" pname="${name}" pquantity="${num}" price="${num * price}"></reward-form>`
+                document.getElementsByClassName('formContainer')[0].innerHTML = `<reward-form class="form" pid = "${id}" pname="${name}" pquantity="${num}" price="${price}"></reward-form>`
                 document.getElementsByClassName('formContainer')[0].classList.remove('hide');
                 document.getElementsByClassName('con-cards-1 con-cards')[0].style.opacity = '0.3';
                 document.getElementsByClassName('plusLess')[0].addEventListener('click', () => {

@@ -1,46 +1,3 @@
-`<form>
-<table>
-    <tr style="height:10px">
-        <td colspan="2"
-            style="text-align:center; font-weight:bold; font-size:40px; padding:20px; color:rgb(66, 108, 110)">
-            THÔNG
-            TIN ĐƠN HÀNG</td>
-    </tr>
-    <tr>
-        <td>
-            <i><strong>Tên sản phẩm: </strong></i>
-        </td>
-        <td>  Vở Thiên Long</td>
-    </tr>
-    <tr>
-        <td>
-            <i><strong>Số lượng:</strong></i>
-        </td>
-        <td>
-              3
-        </td>
-    </tr>
-    <tr>
-        <td><i><strong>Giá: </strong></i></td>
-        <td>  300 DATs</td>
-    </tr>
-    <tr>
-        <td><i><strong>Số điện thoại</strong></i></td>
-        <td>  <input type="text" id="txtPhone" name="txtPhone" placeholder="SDT" required style="width: 310.4px;"></td>
-    </tr>
-    <tr>
-        <td><i><strong>Địa chỉ</strong></i></td>
-        <td>  <textarea name="txtAddress" id="txtAddress" cols="32" rows="1"
-                placeholder="Địa chỉ" required></textarea></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <button type="submit" class="submit">Xác Nhận</button>
-        </td>
-    </tr>
-</table>
-</form>`
-
 class RewardForm extends HTMLElement {
     constructor() {
         super()
@@ -69,7 +26,7 @@ class RewardForm extends HTMLElement {
                     </td>
                 </tr>
                 <tr>
-                    <td><i><strong>Giá: </strong></i></td>
+                    <td><i><strong>Giá/Sản phẩm: </strong></i></td>
                     <td>${this.getAttribute('price')} DATs</td>
                 </tr>
                 <tr>

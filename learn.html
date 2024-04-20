@@ -154,8 +154,14 @@
             getAPI(`http://localhost:8080/api/coin/post?answer=${ans}&wid=${answer}`).then(data => {
                 if (data.status === 'OK') {
                     x.className = "show";
-                    x.innerText = `Bạn đã nhận được ${data.data.toFixed(2)} TOKEN`
-                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                    if (data.data != 0) {
+                        x.innerText = `Bạn đã nhận được ${data.data.toFixed(2)} DATS`
+                        setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                    } else {
+                        x.innerText = `${data.message}`;
+                        x.style.color = '#e2695d';
+                        setTimeout(function () { x.className = x.className.replace("show", ""); }, 1500);
+                    }
                 } else {
                     if (data.message === 'Bạn đã trả lời sai') {
                         x.className = "show";
